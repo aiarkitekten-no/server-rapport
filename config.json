@@ -1,0 +1,74 @@
+{
+  "general": {
+    "read_only": true,
+    "email_recipient": "terje@smartesider.no",
+    "smtp_host": "localhost",
+    "smtp_port": 25,
+    "from_email": "plesk-health@server.local"
+  },
+  "thresholds": {
+    "disk_usage_warning": 75,
+    "disk_usage_critical": 90,
+    "inode_usage_warning": 75,
+    "inode_usage_critical": 90,
+    "load_per_cpu_warning": 2.0,
+    "load_per_cpu_critical": 4.0,
+    "memory_usage_warning": 85,
+    "memory_usage_critical": 95,
+    "swap_usage_warning": 50,
+    "swap_usage_critical": 80,
+    "tls_expiry_warning": 30,
+    "tls_expiry_critical": 7,
+    "backup_age_warning_hours": 36,
+    "backup_age_critical_hours": 48,
+    "cpu_temp_warning": 75,
+    "cpu_temp_critical": 85,
+    "mysql_connections_warning": 70,
+    "mysql_connections_critical": 90,
+    "high_cpu_threshold": 90
+  },
+  "paths": {
+    "plesk_root": "/usr/local/psa",
+    "vhosts_root": "/var/www/vhosts",
+    "plesk_panel_log": "/var/log/plesk/panel.log",
+    "nginx_error_log": "/var/log/nginx/error.log",
+    "apache_error_log": "/var/log/apache2/error.log",
+    "mail_log": "/var/log/mail.log",
+    "backup_root": "/var/lib/psa/dumps"
+  },
+  "checks": {
+    "enabled": {
+      "system_health": true,
+      "packages": true,
+      "network": true,
+      "security": true,
+      "plesk": true,
+      "webapp": true,
+      "database": true,
+      "cron": true,
+      "email": true,
+      "clamav": true,
+      "backup": true,
+      "logs": true,
+      "tls": true,
+      "processes": true
+    }
+  },
+  "rbl_servers": [
+    "zen.spamhaus.org",
+    "bl.spamcop.net",
+    "b.barracudacentral.org",
+    "dnsbl.sorbs.net"
+  ],
+  "log_analysis": {
+    "time_window_hours": 24,
+    "top_errors_count": 10,
+    "error_patterns": [
+      "error",
+      "critical",
+      "fatal",
+      "fail",
+      "exception"
+    ]
+  }
+}
